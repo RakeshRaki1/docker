@@ -1,7 +1,3 @@
-FROM python:3.6
-MAINTAINER rakesh rakesh.ankenapally@gmail.com
-COPY . /app/
-WORKDIR /app/
-EXPOSE 5000
-RUN pip install -r requirements.txt
-ENTRYPOINT ["python", "app.py"]
+FROM tomcat:8.0.20-jre8
+
+COPY target/01-maven-web-app*.war /usr/local/tomcat/webapps/maven-web-app.war
